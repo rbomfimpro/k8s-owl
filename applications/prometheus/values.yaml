@@ -1,0 +1,13 @@
+server:
+  ingress:
+    enabled: true
+    ingressClassName: traefik
+    annotations:
+      traefik.ingress.kubernetes.io/router.entrypoints: websecure
+      traefik.ingress.kubernetes.io/router.tls: "true"
+    hosts:
+      - prometheus.owl.localhost
+    tls:
+      - secretName: owl-tls
+        hosts:
+        - prometheus.owl.localhost
